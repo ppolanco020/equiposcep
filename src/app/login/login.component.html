@@ -1,0 +1,28 @@
+
+
+
+
+<p>Login</p>
+<hr>
+
+<div class="container">
+    
+      
+<form (ngSubmit)="login()" id="loginForm">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email *</label>
+        <input type="email" [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="usuario.email" required class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Password: *</label>
+        <input type="password" [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="usuario.password" required class="form-control" id="exampleFormControlInput1" placeholder="****">
+    </div>
+    
+   
+    <input class="btn btn-success" type="submit" value="Ingresar">
+</form>
+</div>
+  
+<form>

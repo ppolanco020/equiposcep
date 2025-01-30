@@ -1,0 +1,29 @@
+<div class="container">
+    <app-logout></app-logout>
+    <label>Buscar Usuario:</label>
+    <hr>
+  
+  
+      <table class="table table-responsive  table-striped table-bordered" *ngIf=usuarios>
+          <thead> 
+              <tr> 
+                <th scope="col">Correo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Nit</th>
+                <th scope="col">Fecha de Registro</th>
+              </tr> 
+          </thead> 
+          <tbody *ngFor="let usuario of usuarios"> 
+              <tr> 
+                <th scope="row">{{usuario.email}}</th>
+               <td>{{usuario.nombre}}</td>         
+               <td>{{usuario.apellido}}</td>
+               <td>{{usuario.nit}}</td>
+               <td>{{usuario.fechaRegistro}}</td>
+              </tr> 
+               
+                          </tbody> 
+                      </table> 
+              
+  
