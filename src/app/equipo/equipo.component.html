@@ -30,7 +30,25 @@
       </div>
     </div>
 
+    <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Procesador :</label>
+      <div class="col-sm-10">
+        <input type="nombre" class="form-control" id="inputUbicacion">
+      </div>
+    </div>
+
+
+    <label>Agregar<button type="button" (click)="agregarequipoProcesador()" class="btn btn-warning">+</button></label>
+    <div *ngFor="let c of procesadorequipo.procesador">
+         <div class="mb-3">
+             <label  class="form-label"> Procesador*</label>
+             <select class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone:true}" 
+             [(ngModel)]="c.ingredienteidingrediente" required class="form-control" id="exampleFormControlInput2">
+                 <option *ngFor="let u of procesadores" value={{u.idprocesador}}>{{u.procesador}}</option>
+         
+             </select>
+         </div>  
+
 
     
     <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
