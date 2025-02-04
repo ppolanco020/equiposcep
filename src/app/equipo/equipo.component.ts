@@ -16,10 +16,11 @@ import { MenuModule } from 'primeng/menu';
   styleUrl: './equipo.component.css'
 })
 export class EquipoComponent {
-
+  equipos:any=[];
   procesadores:any=[];
-  procesadorequipo:any={
-    procesador:[],
+
+  equipo:any={
+    equipoprocesador:[],
   };
 
   constructor(private http:HttpClient){
@@ -27,8 +28,25 @@ export class EquipoComponent {
 
 
     this.buscarProcesador();
+    this.buscarEquipo();
+  }
+
+  
+
+  buscarEquipo(){
+    this.servicioBuscarEquipos().subscribe(
+      (u:any) => this.equipos = u
+    )
+  }
+  servicioBuscarEquipos():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/equipo/buscar");
   }
   
+
+
+
+
+
   buscarProcesador(){
     this.servicioBuscarProcesador().subscribe(
       (u:any) => this.procesadores = u
@@ -38,10 +56,10 @@ export class EquipoComponent {
     return this.http.get<any>("http://localhost:8080/procesador/buscar");
   }
 
-
-
+  
   agregarequipoProcesador(){
-    this.procesadorequipo.procesador.push({});
+    this.equipo.equipoprocesador.push({});
+    
   }
 
 }
