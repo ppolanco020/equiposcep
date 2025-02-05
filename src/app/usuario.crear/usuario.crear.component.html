@@ -20,6 +20,18 @@
     <input type="text" class="form-control" placeholder="Correo Electrónico" aria-label="Correo Electronico" aria-describedby="basic-addon1">
   </div>
   
+  
+<div class="input-group mb-3">
+  <div  *ngFor="let c of usuarios">
+    <select class="input-text" aria-label="Default select example" [ngModelOptions]="{standalone:true}" 
+     [(ngModel)]="c.ubicacionidubicacion" required class="form-control" id="exampleFormControlInput2">
+     <option  class="form-control" *ngFor="let u of ubicaciones" value={{u.idubicacion}}>{{u.ubicacion}}</option>    
+  </select>
+</div>
+</div>
+
+
+
   <div class="input-group mb-3">
     <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <span class="input-group-text" id="basic-addon2">example.com</span>
@@ -51,3 +63,6 @@
     <textarea class="form-control" aria-label="With textarea"></textarea>
   </div>
 </div>
+
+
+
