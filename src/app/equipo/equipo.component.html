@@ -47,6 +47,20 @@
 </div>
 
 
+<div class="row mb-3">
+  <button type="button" (click)="agregarmarcaModelo()" class="btn btn-warning col-sm-2 ">Agregar Marca</button>
+
+  <div class="col-sm-10">
+    <div  *ngFor="let c of equipo.marcamodelo">
+      <select class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone:true}" 
+       [(ngModel)]="c.procesadoridprocesador" required class="form-control" id="exampleFormControlInput2">
+       <option  class="form-control" *ngFor="let u of marcas" value={{u.idmarca}}>{{u.marca}}</option>    
+    </select>
+  </div>
+</div>
+</div>
+
+
 
 
 

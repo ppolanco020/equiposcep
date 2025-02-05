@@ -18,17 +18,21 @@ import { MenuModule } from 'primeng/menu';
 export class EquipoComponent {
   equipos:any=[];
   procesadores:any=[];
+  marcas:any=[];
 
   equipo:any={
     equipoprocesador:[],
+    marcamodelo:[]
   };
+
+
 
   constructor(private http:HttpClient){
 
 
-
-    this.buscarProcesador();
     this.buscarEquipo();
+    this.buscarProcesador();
+    this.buscarMarca();
   }
 
   
@@ -62,4 +66,26 @@ export class EquipoComponent {
     
   }
 
+
+  
+
+
+
+  buscarMarca(){
+    this.servicioBuscarMarca().subscribe(
+      (u:any) => this.marcas = u
+    )
+  }
+  servicioBuscarMarca():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/marca/buscar");
+  }
+
+  
+  agregarmarcaModelo(){
+    this.equipo.marcamodelo.push({});
+    
+  }
+
+
+  
 }
