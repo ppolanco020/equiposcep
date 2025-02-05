@@ -17,4 +17,31 @@ import { MenuModule } from 'primeng/menu';
 })
 export class EquipoComponent {
 
+  procesadores:any=[];
+  procesadorequipo:any={
+    procesador:[],
+  };
+
+  constructor(private http:HttpClient){
+
+
+
+    this.buscarProcesador();
+  }
+  
+  buscarProcesador(){
+    this.servicioBuscarProcesador().subscribe(
+      (u:any) => this.procesadores = u
+    )
+  }
+  servicioBuscarProcesador():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/procesador/buscar");
+  }
+
+
+
+  agregarequipoProcesador(){
+    this.procesadorequipo.procesador.push({});
+  }
+
 }
