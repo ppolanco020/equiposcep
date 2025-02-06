@@ -6,7 +6,7 @@
 
   <div class="input-group mb-3">
     <input type="text" class="form-control" placeholder="Nombre" aria-label="Username">
-    <span class="input-group-text">"&#64;"</span>
+ 
     <input type="text" class="form-control" placeholder="Apellido" aria-label="Server">
   </div>
 
@@ -27,7 +27,7 @@
 
 <div class="col-sm-10">
   <div  *ngFor="let c of usuario.usuarioubicacion">
-    <select class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone:true}" 
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example" [ngModelOptions]="{standalone:true}" 
      [(ngModel)]="c.email" required class="form-control" id="exampleFormControlInput2">
      <option  class="form-control" *ngFor="let u of ubicaciones" value={{u.idubicacion}}>{{u.ubicacion}}</option>    
   </select>
