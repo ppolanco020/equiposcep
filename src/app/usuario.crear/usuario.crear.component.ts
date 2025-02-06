@@ -18,13 +18,20 @@ import { MenuModule } from 'primeng/menu';
 })
 export class UsuarioCrearComponent {
 
-    usuario:any={};
+
     usuarios:any=[];
     ubicaciones:any=[];
 
     marcas:any=[];
   
 
+    usuario:any={
+      usuarioubicacion:[],
+  
+    };
+  
+  
+  
   
   
   
@@ -57,5 +64,12 @@ buscarUsuario(){
 servicioBuscarUsuario():Observable<any>{
   return this.http.get<any>("http://localhost:8080/usuario/buscar");
 }
+
+agregarusuarioUbicacion(){
+  this.usuario.usuarioubicacion.push({});
+  
+}
+
+
 
 }
