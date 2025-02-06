@@ -26,6 +26,6 @@ export const appConfig: ApplicationConfig = {
                  darkModeSelector: 'system',
                  cssLayer: false
                }  }
-  }), provideAnimationsAsync()
+  }), provideAnimationsAsync(), provideAnimationsAsync()
 ]
 };

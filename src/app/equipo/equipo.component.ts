@@ -16,19 +16,41 @@ import { MenuModule } from 'primeng/menu';
   styleUrl: './equipo.component.css'
 })
 export class EquipoComponent {
-
+  equipos:any=[];
   procesadores:any=[];
-  procesadorequipo:any={
-    procesador:[],
+  marcas:any=[];
+
+  equipo:any={
+    equipoprocesador:[],
+    marcamodelo:[]
   };
+
+
 
   constructor(private http:HttpClient){
 
 
-
+    this.buscarEquipo();
     this.buscarProcesador();
+    this.buscarMarca();
+  }
+
+  
+
+  buscarEquipo(){
+    this.servicioBuscarEquipos().subscribe(
+      (u:any) => this.equipos = u
+    )
+  }
+  servicioBuscarEquipos():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/equipo/buscar");
   }
   
+
+
+
+
+
   buscarProcesador(){
     this.servicioBuscarProcesador().subscribe(
       (u:any) => this.procesadores = u
@@ -38,10 +60,32 @@ export class EquipoComponent {
     return this.http.get<any>("http://localhost:8080/procesador/buscar");
   }
 
-
-
+  
   agregarequipoProcesador(){
-    this.procesadorequipo.procesador.push({});
+    this.equipo.equipoprocesador.push({});
+    
   }
 
+
+  
+
+
+
+  buscarMarca(){
+    this.servicioBuscarMarca().subscribe(
+      (u:any) => this.marcas = u
+    )
+  }
+  servicioBuscarMarca():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/marca/buscar");
+  }
+
+  
+  agregarmarcaModelo(){
+    this.equipo.marcamodelo.push({});
+    
+  }
+
+
+  
 }
