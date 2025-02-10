@@ -32,10 +32,6 @@ main {
   transform-origin: .5em 50%;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c0f437cef3bcfa7763c173270f388dca36cc2aa0
 .btn-toggle[aria-expanded="true"] {
   color: rgba(var(--bs-emphasis-color-rgb), .85);
 }
