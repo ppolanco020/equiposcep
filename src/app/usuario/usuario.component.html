@@ -1,29 +1,56 @@
-<div class="container">
-    <app-logout></app-logout>
-    <label>Buscar Usuario:</label>
-    <hr>
-  
-  
-      <table class="table table-responsive  table-striped table-bordered" *ngIf=usuarios>
-          <thead> 
-              <tr> 
-                <th scope="col">Correo</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Nit</th>
-                <th scope="col">Fecha de Registro</th>
-              </tr> 
-          </thead> 
-          <tbody *ngFor="let usuario of usuarios"> 
-              <tr> 
-                <th scope="row">{{usuario.email}}</th>
-               <td>{{usuario.nombre}}</td>         
-               <td>{{usuario.apellido}}</td>
-               <td>{{usuario.nit}}</td>
-               <td>{{usuario.fechaRegistro}}</td>
-              </tr> 
-               
-                          </tbody> 
-                      </table> 
-              
-  ñ
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+              <div class="row">
+                <div class="col-3">
+                  <app-logout></app-logout>             
+                </div>
+    <div class="col-7">
+         
+      <div class="container-fluid border mt-3 border-0">
+                <table class="table table-responsive  table-striped table-bordered" *ngIf=usuarios>
+                  <thead> 
+                      <tr> 
+                        <th scope="col">Correo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Nit</th>
+                        <th scope="col">Fecha de Registro</th>
+                      </tr> 
+                  </thead> 
+                  <tbody *ngFor="let usuario of usuarios"> 
+                      <tr> 
+                        <th scope="row">{{usuario.email}}</th>
+                      <td>{{usuario.nombre}}</td>         
+                      <td>{{usuario.apellido}}</td>
+                      <td>{{usuario.nit}}</td>
+                      <td>{{usuario.fechaRegistro}}</td>
+                      
+                      </tr> 
+                                  </tbody> 
+                              </table> 
+                            </div>
+                              </div>
+              <div class="col">
+            
+                </div>
+              </div>
+           
+            
+                              
+
+
+
+
+
+
+</body>
+</html>
+

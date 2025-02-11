@@ -19,7 +19,7 @@ import { MenuModule } from 'primeng/menu';
 export class BienvenidaComponent {
   usuarios:any=[];
 
-  constructor(private http:HttpClient,private primeng: PrimeNG){
+  constructor(private http:HttpClient){
     this.buscarUsuarios();
  
   }
