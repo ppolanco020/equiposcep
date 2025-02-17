@@ -1,4 +1,4 @@
-body {
+/*body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
   }
@@ -67,6 +67,37 @@ body {
   margin-bottom: 1.5rem;
   background-color: rgba(112.520718, 44.062154, 249.437846, .15);
   border: 1px solid rgba(112.520718, 44.062154, 249.437846, .3);
+}*/
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+.wrapper.row {
+  flex-wrap: nowrap;
+  margin: 0;
+}
 
+.wrapper.row>* {
+  padding: 0;
+  text-align: center;
+}
+
+/* ----- end ----- */
+
+.col-md-2 {
+  background-color: white;
+}
+
+.col-md-2 div {
+  position: sticky;
+  top: 0;
+}
+
+.col-md-8 {
+  background-color: white;
+  height: 175vh;
+}
