@@ -11,78 +11,117 @@
 </head>
 
 <body >
-
+  
   <div class="wrapper row">
-    <nav class="col-sm-3">
+    <nav class="col-md-2">
       <div>
   <app-logout></app-logout>
       </div>
     </nav>
 
     <main class="col-md-8">
-      <div >
   
-        <div class="input-group">
-        <div class="form-check form-switch">
+      <div class="card">
+        <div class="card-body">
+         <h1  class="card-title"> Equipo de Cómputo</h1>
+   
+      <div class="container">
+  
 
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Agregar Equipo</label>
-        </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase">
+        <label for="floatingInput">Sicoin</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Password" style="text-transform:uppercase">
+        <label for="floatingInput">Nombre del equipo</label>
       </div>
 
+   
 
-      <div class="form-floating mb-3" >
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput"> Email address</label>
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" type="button">Marca</button>
+        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+      
+      
+             <option  class="form-control" id="floatingInput" *ngFor="let u of marcas" value={{u.idmarca}} selected="marcamodelo()" >{{u.marca}}</option>    
+        </select>
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
+      
+      
+      
 
 
 
 
 
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Password">
+        <label for="floatingInput">Modelo</label>
+      </div> 
+      
 
-       <div class="row">
-        <div class="col-sm-3 form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Sicoin</label>
+   <div class="input-group mb-3">
+  <button class="btn btn-outline-secondary" type="button">Procesador</button>
+  <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+
+
+       <option  class="form-control" id="floatingInput" *ngFor="let u of procesadores" value={{u.idprocesador}} selected="agregarequipoProcesador()" >{{u.procesador}}</option>    
+  </select>
 </div>
 
-        <div class="col-sm-3 form-floating mb-3">
 
-          <input type="text" aria-label="nombreEquipo" class="form-control">
-       
-        </div>
-      </div>
-  
 
-        <div class="input-group mb-3">
-          <span class="input-group-text">Número de Serie</span>
-          <input type="text" aria-label="NumeroSerie" class="form-control">
-       
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInput" placeholder="Password">
+        <label for="floatingInput">Almacenamiento</label>
+      </div> 
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInput" placeholder="Password">
+        <label for="floatingInput">Random Access Memory (RAM)</label>
+      </div> 
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control" id="floatingInput" placeholder="Password">
+        <label for="floatingInput">Inicio de Garantia</label>
+      </div> 
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control" id="floatingInput" placeholder="Password">
+        <label for="floatingInput">Fin de Garantia</label>
+      </div> 
+
       
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Password">
+        <label for="floatingInput">Ubicación</label>
+      </div> 
+
+      
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Password">
+        <label for="floatingInput">Estado</label>
+      </div> 
+
      
-      </div>
-  
+     
+     
+     
+
+     
+
   
       <div class="input-group mb-3">
       <button type="button" (click)="agregarequipoProcesador()" class="btn btn-warning col-sm-2 ">Agregar Procesador</button>
    
-      <div class="col-sm-10">
+     <!--- <div class="col-sm-10">
         <div  *ngFor="let c of equipo.equipoprocesador">
           <select class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone:true}" 
            [(ngModel)]="c.procesadoridprocesador" required class="form-control" id="exampleFormControlInput2">
            <option  class="form-control" *ngFor="let u of procesadores" value={{u.idprocesador}}>{{u.procesador}}</option>    
         </select>
       </div>
-    </div>
+    </div>-->
   </div>
   
-  <div class="input-group mb-3">
-    <button type="button" (click)="agregarmarcaModelo()" class="btn btn-warning col-sm-2 ">Agregar Marca</button>
   
     <div class="col-sm-10">
       <div  *ngFor="let c of equipo.marcamodelo">
@@ -92,71 +131,18 @@
       </select>
     </div>
   </div>
-  </div>
+  
+
   
   
   
-  <div class="input-group mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Marca</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputPassword3">
-          <option  class="form-control" (event)="agregarmarcaModelo()" *ngFor="let u of marcas" value={{u.idmarca}}>{{u.marca}}</option>
-        </div>
-      </div>
-      <div class="input-group mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Modelo</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputPassword3">
-        </div>
-      </div>
-      <div class="input-group mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Inicio de Garantia</label>
-        <div class="col-sm-10">
-          <input type="date" class="form-control" id="inputPassword3">
-        </div>
-      </div>
-      <div class="input-group mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Fin de Garantia</label>
-        <div class="col-sm-10">
-          <input type="date" class="form-control" id="inputPassword3">
-        </div>
-      </div>
-      <fieldset class="row mb-3">
-        <legend class="col-form-label col-sm-2 pt-0">Estado</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              Excelente
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Bueno
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Necesita Revitalización
-            </label>
-          </div>
-        </div>
-      </fieldset>
-      <div class="row mb-3">
-        <div class="col-sm-10 offset-sm-2">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label" for="gridCheck1">
-              Example checkbox
-            </label>
-          </div>
-        </div>
-      </div>
       <button type="submit" class="btn btn-primary">Guardar</button>    
 </div>
 
+
+
+</div><!--   cierra el card-->
+</div><!--   cierra el card-->
 </main>
 <nav class="col-md-2">
   <div>
