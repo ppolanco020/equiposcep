@@ -111,10 +111,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <h3 class="text-center py-3">Mi Sidebar</h3>
-        <a href="index.html">Página Principal</a>
-        <a href="pagina2.html">Página 2</a>
-        <a href="pagina3.html">Página 3</a>
+     <app-logout></app-logout>
     </div>
 
     <!-- Contenido principal -->
@@ -136,7 +133,32 @@
 
         <div class="container">
             <h1>Bienvenido a la Página 2</h1>
-            <p>Contenido de la página 2 aquí.</p>
+                   
+       
+            <table class="table table-responsive  table-striped table-bordered" *ngIf=usuarios>
+              <thead> 
+                  <tr> 
+                    <th scope="col">Correo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Nit</th>
+                    <th scope="col">Fecha de Registro</th>
+                  </tr> 
+              </thead> 
+              <tbody *ngFor="let usuario of usuarios"> 
+                  <tr> 
+                    <th scope="row">{{usuario.email}}</th>
+                  <td>{{usuario.nombre}}</td>         
+                  <td>{{usuario.apellido}}</td>
+                  <td>{{usuario.nit}}</td>
+                  <td>{{usuario.fechaRegistro}}</td>
+                  
+                  </tr> 
+                              </tbody> 
+                          </table> 
+   
+
+
         </div>
     </div>
 
