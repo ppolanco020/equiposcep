@@ -111,7 +111,7 @@ export class EquipoComponent {
   }
 
   
-  agregarmarcaModelo(){
+  agregarMarcaModelo(){
     this.equipo.marcamodelo.push({});
     
   }

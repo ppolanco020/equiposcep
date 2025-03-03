@@ -99,22 +99,29 @@
   <label for="floatingInput">Nombre del equipo</label>
 </div>
 
+
+
       <div class="input-group mb-3">
         <button class="btn btn-outline-secondary" type="button">Marca</button>
-        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon"
+        [ngModelOptions]="{standalone:true}" [(ngModel)]="equipo.marcas"  class="form-control" value=onFileChange($event)>
+      
       
       
              <option  class="form-control" id="floatingInput" *ngFor="let u of marcas" value={{u.idmarca}} selected="marcamodelo()" >{{u.marca}}</option>    
         </select>
       </div>
-      
-      
   
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Password">
-        <label for="floatingInput">Modelo</label>
-      </div> 
-      
+    
+      <label>Agregar<button type="button" (click)="agregarMarcaModelo()" class="btn btn-warning">+</button></label>
+      <div *ngFor="let c of equipo.marcamodelo">
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" type="button">Modelo</button>
+        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon"
+        [ngModelOptions]="{standalone:true}" [(ngModel)]="c.marcamodelo"  class="form-control" value=onFileChange($event)>
+             <option  class="form-control" id="floatingInput" *ngFor="let u of equipo.marcamodelo" value={{u.modeloidmodelo}} selected="marcamodelo()" >{{u.modelo}}</option>    
+        </select>
+      </div>
 
    <div class="input-group mb-3">
   <button class="btn btn-outline-secondary" type="button">Procesador</button>
@@ -128,31 +135,43 @@
 
 
       <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingInput" placeholder="Password">
+        <input type="number" class="form-control" id="host" placeholder="Password"   [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="equipo.nombrehost"  class="form-control" value=onFileChange($event)>
         <label for="floatingInput">Almacenamiento</label>
       </div> 
       <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingInput" placeholder="Password">
+        <input type="number" class="form-control" id="floatingInput" placeholder="Password"  [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="equipo.ramidram"  class="form-control" value=onFileChange($event)>
         <label for="floatingInput">Random Access Memory (RAM)</label>
       </div> 
       <div class="form-floating mb-3">
-        <input type="date" class="form-control" id="floatingInput" placeholder="Password">
+        <input type="date" class="form-control" id="floatingInput" placeholder="Password"   [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="equipo.iniciogarantia"  class="form-control" value=onFileChange($event)>
         <label for="floatingInput">Inicio de Garantia</label>
       </div> 
       <div class="form-floating mb-3">
-        <input type="date" class="form-control" id="floatingInput" placeholder="Password">
+        <input type="date" class="form-control" id="floatingInput" placeholder="Password"   [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="equipo.fingarantia"  class="form-control" value=onFileChange($event)>
+        <label for="floatingInput">Fin de Garantia</label>
+      </div> 
+
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control" id="floatingInput" placeholder="Password"   [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="equipo.nombrehost"  class="form-control" value=onFileChange($event)>
         <label for="floatingInput">Fin de Garantia</label>
       </div> 
 
       
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Password">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Password"  [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="equipo.nombrehost"  class="form-control" value=onFileChange($event)>
         <label for="floatingInput">Ubicación</label>
       </div> 
 
       
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Password">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Password"   [ngModelOptions]="{standalone:true}" 
+        [(ngModel)]="equipo.nombrehost"  class="form-control" value=onFileChange($event)>>
         <label for="floatingInput">Estado</label>
       </div> 
 
