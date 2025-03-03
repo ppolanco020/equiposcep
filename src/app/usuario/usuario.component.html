@@ -1,72 +1,4 @@
-<!----<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>Usuario</title>
-</head>
 
-<body>
-
-  <div class="wrapper row">
-    <nav class="col-md-2">
-      <div>
-        <app-logout></app-logout>         
-      </div>
-    </nav>
-    <main class="col-md-8">
-      <div class="container">
-        <div class="container-fluid border mt-3 border-0">
-          <table class="table table-responsive  table-striped table-bordered" *ngIf=usuarios>
-            <thead> 
-                <tr> 
-                  <th scope="col">Correo</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Nit</th>
-                  <th scope="col">Fecha de Registro</th>
-                </tr> 
-            </thead> 
-            <tbody *ngFor="let usuario of usuarios"> 
-                <tr> 
-                  <th scope="row">{{usuario.email}}</th>
-                <td>{{usuario.nombre}}</td>         
-                <td>{{usuario.apellido}}</td>
-                <td>{{usuario.nit}}</td>
-                <td>{{usuario.fechaRegistro}}</td>
-                
-                </tr> 
-                            </tbody> 
-                        </table> 
-                      </div>
-                        </div>
-      
-      
-                        
-    </main>
-    <nav class="col-md-2">
-      <div>
-       right sidebar-->
-
-<!--
-      </div>
-    </nav>
-  </div>
-
-</body>
-</html>
-
-
---->
-
-
-
-
-
-
-<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -131,40 +63,50 @@
             </div>
         </nav>
 
+
+
         <div class="container">
+
             <h1>Bienvenido a la Página 2</h1>
                    
-       
-            <table class="table table-responsive  table-striped table-bordered" *ngIf=usuarios>
-              <thead> 
-                  <tr> 
-                    <th scope="col">Correo</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Nit</th>
-                    <th scope="col">Fecha de Registro</th>
-                  </tr> 
-              </thead> 
-              <tbody *ngFor="let usuario of usuarios"> 
-                  <tr> 
-                    <th scope="row">{{usuario.email}}</th>
-                  <td>{{usuario.nombre}}</td>         
-                  <td>{{usuario.apellido}}</td>
-                  <td>{{usuario.nit}}</td>
-                  <td>{{usuario.fechaRegistro}}</td>
-                  
-                  </tr> 
-                              </tbody> 
-                          </table> 
-   
+            
+    <form (ngSubmit)="ingresar()" id="usuarioForm">
+      <div class="mb-3" >
+      <!--    <input type = "text"  class="form-control" id="Descripcion" [ngModelOptions]="{standalone:true}" 
+          [(ngModel)]="platillo.foto"   class="form-control">
+          </div>-->
+  
+       <div class="mb-3" >
+              <label for="Descripcion" class="form-label">email </label>
+              <input type = "text" class="form-control" id="Descripcion" [ngModelOptions]="{standalone:true}" 
+              [(ngModel)]="usuario.email"  class="form-control" value=onFileChange($event) >
+              </div>
+              <div class="mb-3" >
+                <label for="Descripcion" class="form-label">ubicacion </label>
+                <input type = "text" class="form-control" id="Descripcion" [ngModelOptions]="{standalone:true}" 
+                [(ngModel)]="usuario.ubicacionidubicacion"  class="form-control" value=onFileChange($event) >
+                </div>
+    
+  
+  
+      <script>
+          function resetInput() {
+              document.getElementById('imagenUploader').value = ""; // Resetea el input a vacío
+          }
+          </script>
+     
+  <div> <input class="btn btn-success" type="submit" value="Guardar"></div>
+  <hr>
+  
 
 
-        </div>
-    </div>
+
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-</body>
 
-</html>
+

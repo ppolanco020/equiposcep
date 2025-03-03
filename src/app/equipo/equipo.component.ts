@@ -37,6 +37,36 @@ export class EquipoComponent {
 
   
 
+  ingresar(){
+    let formularioValido:any=document.getElementById("equipoForm");
+  
+    if(formularioValido.reportValidity()){
+      this.servicioGuardar().subscribe(
+        (u:any)=> this.finalizarGuardar(u)
+      )      
+       } 
+    }
+  
+    servicioGuardar(){
+    let httpOptions={
+        headers:new HttpHeaders({
+      'Content-Type':'application/json'
+        })
+          }
+      return this.http.post(
+        "http://localhost:8080/equipo/guardar",
+      this.equipo, httpOptions);
+     
+    }
+  
+  
+    finalizarGuardar(u:any){
+      this.buscarEquipo();
+      alert("Usuario guardado exitosamente!!")
+  
+    }
+
+
   buscarEquipo(){
     this.servicioBuscarEquipos().subscribe(
       (u:any) => this.equipos = u

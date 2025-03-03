@@ -26,7 +26,7 @@ export class UsuarioComponent {
 
 
   ingresar(){
-    let formularioValido:any=document.getElementById("ingredienteForm");
+    let formularioValido:any=document.getElementById("usuarioForm");
   
     if(formularioValido.reportValidity()){
       this.servicioGuardar().subscribe(
