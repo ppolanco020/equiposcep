@@ -19,6 +19,7 @@ export class EquipoComponent {
   equipos:any=[];
   procesadores:any=[];
   marcas:any=[];
+  modelos:any=[];
 
   equipo:any={
     equipoprocesador:[],
@@ -33,6 +34,7 @@ export class EquipoComponent {
     this.buscarEquipo();
     this.buscarProcesador();
     this.buscarMarca();
+    this.buscarModelo();
   }
 
   
@@ -78,6 +80,16 @@ export class EquipoComponent {
   
 
 
+
+  buscarModelo(){
+    this.servicioBuscarModelos().subscribe(
+      (u:any) => this.modelos = u
+    )
+  }
+  servicioBuscarModelos():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/modelo/buscar");
+  }
+  
 
 
 
