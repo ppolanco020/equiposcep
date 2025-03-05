@@ -112,7 +112,7 @@
           <button class="btn btn-outline-secondary" type="button">Modelo</button>
           <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon"
          [ngModelOptions]="{standalone:true}" 
-         [(ngModel)]="c.modeloidmodelo"  class="form-control" value=onFileChange($event)>
+         [(ngModel)]="c.modeloidmodelo"  class="form-control">
              <option  class="form-control" id="floatingInput" *ngFor="let u of modelos" value={{u.idmodelo}}>{{u.modelo}}</option>    
          </select>
       </div>
