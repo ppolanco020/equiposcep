@@ -27,6 +27,13 @@ export class EquipoComponent {
   };
 
 
+  // Valores seleccionados
+  selectedCountry: any = [];
+  selectedCity: any = [];
+
+  // Lista de ciudades depende del país seleccionado
+  cities: any = [];
+
 
   constructor(private http:HttpClient){
 
@@ -126,8 +133,15 @@ export class EquipoComponent {
   agregarMarcaModelo(){
     this.equipo.marcamodelo.push({});
     
+  } onCountryChange() {
+    if (this.selectedCountry > 0) {
+      this.http.get<any[]>(`http://localhost:8080/modelo/buscar/1${this.selectedCountry}`).subscribe((data) => {
+        this.cities = data;
+        this.selectedCity = 0;  // Resetear ciudad seleccionada
+      });
+    } else {
+      this.cities = [];
+    }
   }
 
-
-  
 }

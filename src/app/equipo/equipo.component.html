@@ -110,17 +110,18 @@
     <div class="input-group mb-3">
         <button class="btn btn-outline-secondary" type="button">Marca</button>
         <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon"
-        [ngModelOptions]="{standalone:true}" [(ngModel)]="c.marcaidmarca"  class="form-control">
-             <option  *ngFor="let u of marcas" value={{u.idmarca}} >{{u.marca}}</option>    
+        [ngModelOptions]="{standalone:true}" [(ngModel)]="selectedCountry"  class="form-control"  (change)="onCountryChange()">
+             <option  *ngFor="let country of marcas" value={{country.idmarca}}>{{country.marca}}</option>    
         </select>
+        
       </div>
   
         <div class="input-group mb-3" >
           <button class="btn btn-outline-secondary" type="button">Modelo</button>
           <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon"
-         [ngModelOptions]="{standalone:true}" [(ngModel)]="c.modeloidmodelo"  class="form-control" >
+         [ngModelOptions]="{standalone:true}" [(ngModel)]="this.selectedCity"  class="form-control" >
 
-             <option  *ngFor="let u of modelos"  value={{u.idmodelo}}>{{u.modelo}} </option>    
+             <option  *ngFor="let city of cities"  value={{city.idmodelo}}>{{city.modelo}} </option>    
          </select>
       </div>
   
