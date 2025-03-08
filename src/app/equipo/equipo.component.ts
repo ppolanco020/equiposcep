@@ -18,8 +18,9 @@ import { MenuModule } from 'primeng/menu';
 export class EquipoComponent {
   equipos:any=[];
   procesadores:any=[];
-  marcas:any=[];
-  modelos:any=[];
+  marcas:any[]=[];
+  modelos:any[]=[];
+  modelo:any={};
 
   equipo:any={
     equipoprocesador:[],
@@ -32,7 +33,8 @@ export class EquipoComponent {
   selectedCity: any = [];
 
   // Lista de ciudades depende del país seleccionado
-  cities: any = [];
+  cities: any=[]=[];
+  countries: any[]=[];
 
 
   constructor(private http:HttpClient){
@@ -129,19 +131,30 @@ export class EquipoComponent {
     return this.http.get<any>("http://localhost:8080/marca/buscar");
   }
 
-  
   agregarMarcaModelo(){
     this.equipo.marcamodelo.push({});
-    
-  } onCountryChange() {
+  }
+   
+  
+ onCountryChange() {
+alert("selected "+this.selectedCountry)
     if (this.selectedCountry > 0) {
-      this.http.get<any[]>(`http://localhost:8080/modelo/buscar/1${this.selectedCountry}`).subscribe((data) => {
-        this.cities = data;
-        this.selectedCity = 0;  // Resetear ciudad seleccionada
-      });
+      this.servicioBuscarModeloyMarca().subscribe(
+        (u:any) => this.cities = u
+      
+      //  this.selectedCity = 0;  // Resetear ciudad seleccionada
+      )
     } else {
       this.cities = [];
+
     }
+  }
+
+  
+  
+  servicioBuscarModeloyMarca():Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/modelo/buscar/marca/${this.selectedCountry}`);
+
   }
 
 }
