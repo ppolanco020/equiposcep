@@ -22,7 +22,7 @@ export class EquipoComponent {
   marcas:any[]=[];
   modelos:any[]=[];
   modelo:any={};
-
+  ubicaciones:any=[];
   equipo:any={
     equipoprocesador:[],
     marcamodelo:[]
@@ -114,13 +114,9 @@ export class EquipoComponent {
 
   
   agregarequipoProcesador(){
-    alert("se agregara precesador");
     this.equipo.equipoprocesador.push({});
-
   }
 
-
-  
 
 
 
@@ -163,9 +159,21 @@ export class EquipoComponent {
      this.cities = [];
 
     }
-  
-  
+
   }
+
+    buscarUbicacion(){
+      this.servicioBuscarEquipos().subscribe(
+        (u:any) => this.ubicaciones = u
+      )
+    }
+    servicioBuscarUbicacion():Observable<any>{
+      return this.http.get<any>("http://localhost:8080/ubicacion/buscar");
+    }
+
+
+  
+
 
 
   

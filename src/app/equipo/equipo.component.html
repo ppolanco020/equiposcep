@@ -67,7 +67,7 @@
                     Equipo
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" ><label>Agregar<button type="button" (click)="agregarMarcaModelo()" class="btn btn-outline-light"></button></label></a></li>
+                    <li><a class="dropdown-item" ><label>Agregar<button type="button" (click)="agregarMarcaModelo()"(click)="agregarequipoProcesador()" class="btn btn-outline-light"></button></label></a></li>
                     <li><a class="dropdown-item" href="#">Buscar</a></li>
                     <li><a class="dropdown-item" href="#">Editar</a></li>
                   </ul>
@@ -132,7 +132,7 @@
         [ngModelOptions]="{standalone:true}" [(ngModel)]="c.marcaidmarca" [(ngModel)]="selectedCountry"  class="form-control" (change)="onCountryChange()" >
              <option  *ngFor="let marca of marcas" value={{marca.idmarca}}>{{marca.marca}}</option>    
         </select>
-        <label for="floatingSelect">Selecciona la marca</label>
+        <label for="floatingSelect">Marca</label>
       </div>
 
 
@@ -143,25 +143,24 @@
          [ngModelOptions]="{standalone:true}" [(ngModel)]="c.modeloidmodelo"  [(ngModel)]="selectedCity"  class="form-control" >
              <option  *ngFor="let modelo of cities"  value={{modelo.idmodelo}}>{{modelo.modelo}} </option>    
          </select>
-         <label for="floatingSelect">Selecciona el modelo</label>
+         <label for="floatingSelect">Modelo</label>
       </div>
 
 
-
+      <div *ngFor="let p of equipo.equipoprocesador">
         <div class="form-floating mb-3" >
-    
         <select class="form-select" id="inputGroupSelect03"  aria-label="Floating label" placeholder="Procesador" 
         [ngModelOptions]="{standalone:true}" [(ngModel)]="equipo.procesadores"  class="form-control" >
           <option  class="form-control" id="floatingInput" *ngFor="let u of procesadores" value={{u.idprocesador}} 
              (change)= "agregarequipoProcesador()">{{u.procesador}}</option>    
       </select>
-          <label for="floatingSelect">Selecciona el procesador</label>
+          <label for="floatingSelect">Procesador</label>
     </div>
 
       <div class="form-floating mb-3">
         <input type="number" class="form-control" id="host" placeholder="Password"   [ngModelOptions]="{standalone:true}" 
         [(ngModel)]="equipo.almacenamiento"  class="form-control" value=onFileChange($event)>
-        <label for="floatingInput">Almacenamiento</label>
+        <label for="floatingInput">Almacenamiento (GB)</label>
       </div> 
 
       <div class="form-floating mb-3">
@@ -182,11 +181,15 @@
         <label for="floatingInput">Fin de Garantia</label>
       </div> 
       
+      <div *ngFor="let u of ubicaciones">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Password"  [ngModelOptions]="{standalone:true}" 
-        [(ngModel)]="equipo.ubicacion"  class="form-control" value=onFileChange($event)>
-        <label for="floatingInput">Ubicación</label>
-      </div> 
+        <select class="form-select" id="inputGroupSelect03" aria-label="Floating label" placeholder="Marca" 
+        [ngModelOptions]="{standalone:true}" [(ngModel)]="c.marcaidmarca" [(ngModel)]="selectedCountry"  class="form-control" (change)="onCountryChange()" >
+             <option  *ngFor="let ubicacion of ubicaciones" value={{ubicacion.idubicacion}}>{{ubicacion.ubicacion}}</option>    
+        </select>
+        <label for="floatingSelect">Ubicacion</label>
+      </div>
+ 
             
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="floatingInput" placeholder="Password"   [ngModelOptions]="{standalone:true}" 
