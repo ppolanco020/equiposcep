@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 
 import { PrimeNG } from 'primeng/config';
 import { MenuModule } from 'primeng/menu';
+import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-equipo',
@@ -17,7 +18,7 @@ import { MenuModule } from 'primeng/menu';
 })
 export class EquipoComponent {
   equipos:any=[];
-  procesadores:any=[];
+  procesadores:any[]=[];
   marcas:any[]=[];
   modelos:any[]=[];
   modelo:any={};
@@ -30,10 +31,10 @@ export class EquipoComponent {
 
   // Valores seleccionados
   selectedCountry: any = [];
-  selectedCity: any = [];
+  selectedCity: number[] = [];
 
   // Lista de ciudades depende del país seleccionado
-  cities: any=[]=[];
+  cities: any[]=[];
   countries: any[]=[];
 
 
@@ -113,8 +114,9 @@ export class EquipoComponent {
 
   
   agregarequipoProcesador(){
+    alert("se agregara precesador");
     this.equipo.equipoprocesador.push({});
-    
+
   }
 
 
@@ -132,29 +134,39 @@ export class EquipoComponent {
   }
 
   agregarMarcaModelo(){
+
+
+
     this.equipo.marcamodelo.push({});
   }
    
   
- onCountryChange() {
-alert("selected "+this.selectedCountry)
-    if (this.selectedCountry > 0) {
-      this.servicioBuscarModeloyMarca().subscribe(
-        (u:any) => this.cities = u
-      
-      //  this.selectedCity = 0;  // Resetear ciudad seleccionada
-      )
-    } else {
-      this.cities = [];
-
-    }
-  }
-
-  
   
   servicioBuscarModeloyMarca():Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/modelo/buscar/marca/${this.selectedCountry}`);
+
+ return this.http.get<any>(`http://localhost:8080/modelo/buscar/marca/${this.selectedCountry}`);
 
   }
 
+
+ onCountryChange() {
+
+
+
+    if (this.selectedCountry > 0) {
+      this.servicioBuscarModeloyMarca().subscribe(
+        (u:any[]) => this.cities = u
+      
+
+      )
+  } else {
+     this.cities = [];
+
+    }
+  
+  
+  }
+
+
+  
 }
