@@ -9,10 +9,11 @@ import { CommonModule } from '@angular/common';
 import { PrimeNG } from 'primeng/config';
 import { MenuModule } from 'primeng/menu';
 import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-equipo',
-  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,MenuModule],
+  imports: [FormsModule, HttpClientModule, CommonModule, LogoutComponent, MenuModule, NavbarComponent],
   templateUrl: './equipo.component.html',
   styleUrl: './equipo.component.css'
 })

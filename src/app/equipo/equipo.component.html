@@ -5,7 +5,7 @@
 <!----->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Página 2</title>
+<title>Equipo</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
 
@@ -49,61 +49,23 @@
 
     <!-- Contenido principal -->
 
-
+    <app-navbar></app-navbar>
  
 <div class="content">
 
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Equipo
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" ><label>Agregar<button type="button" (click)="agregarMarcaModelo()"(click)="agregarequipoProcesador()" class="btn btn-outline-light"></button></label></a></li>
-                    <li><a class="dropdown-item" href="#">Buscar</a></li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>Usuario</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
-
-
-        </nav>
-
           
       <div class="container">
-          <h1>Equipo de Cómputo</h1>
+ 
 
 
-<hr>
-<hr>
+        <hr>
+        <hr> <hr>
+        <hr>
 
 
 <form (ngSubmit)="ingresar()" id="equipoForm">
-
-  
+  <h1>Equipo de Cómputo</h1><hr>
    <script>
 
       function resetInput() {
@@ -124,6 +86,13 @@
           [ngModelOptions]="{standalone:true}" [(ngModel)]="equipo.nombrehost"  class="form-control" >
           <label for="floatingInput">Nombre del equipo</label>
         </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Serie" style="text-transform:uppercase"
+          [ngModelOptions]="{standalone:true}" [(ngModel)]="equipo.serie"  class="form-control" >
+          <label for="floatingInput">Serie</label>
+        </div>
+
 
 
       

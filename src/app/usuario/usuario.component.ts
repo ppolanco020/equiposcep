@@ -6,21 +6,25 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 //import { TiposPipe } from '../tipos.pipe';
 import { LogoutComponent } from '../logout/logout.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
+
+import { provideHttpClient, withFetch } from '@angular/common/http';
 @Component({
   selector: 'app-usuario',
-  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent],
+  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,NavbarComponent],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent {
 
   usuarios:any=[];
+  ubicaciones:any=[];
   usuario:any={};
 
   constructor(private http:HttpClient){
     this.buscarUsuarios();
- 
+    
   }
 
 
@@ -66,6 +70,17 @@ servicioBuscarUsuarios():Observable<any>{
   return this.http.get<any>("http://localhost:8080/usuario/buscar");
 }
 
+
+buscarUbicacion(){
+  this.servicioBuscarUsuarios().subscribe(
+      (u:any)=> this.usuarios=u
+  )
+}
+
+
+servicioBuscarUbicaciones():Observable<any>{
+return this.http.get<any>("http://localhost:8080/ubicacion/buscar");
+}
 
 
 }
