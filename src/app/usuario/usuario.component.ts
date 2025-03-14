@@ -18,16 +18,15 @@ import { ModalService } from '../modal.service';
 })
 export class UsuarioComponent {
 
-
-
-  private modal: any;
   usuarios:any=[];
   ubicaciones:any=[];
+  ubicacion:any={};
   usuario:any={};
+
 
   constructor(private http:HttpClient){
     this.buscarUsuarios();
-    
+    this.buscarUbicaciones();
   }
 
 
@@ -54,7 +53,7 @@ export class UsuarioComponent {
     }
   
   
-    finalizarGuardar(u:any){
+  finalizarGuardar(u:any){
       this.buscarUsuarios();
       alert("Usuario guardado exitosamente!!")
   
@@ -73,9 +72,9 @@ servicioBuscarUsuarios():Observable<any>{
 }
 
 
-buscarUbicacion(){
-  this.servicioBuscarUsuarios().subscribe(
-      (u:any)=> this.usuarios=u
+buscarUbicaciones(){
+  this.servicioBuscarUbicaciones().subscribe(
+      (u:any)=> this.ubicacion=u
   )
 }
 
@@ -84,5 +83,10 @@ servicioBuscarUbicaciones():Observable<any>{
 return this.http.get<any>("http://localhost:8080/ubicacion/buscar");
 }
 
+
+  
+agregarusuarioUbicacion(){
+  this.ubicacion.push({});
+}
 
 }
