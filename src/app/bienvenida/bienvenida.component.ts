@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { LogoutComponent } from '../logout/logout.component';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 import { FormsModule } from '@angular/forms'; // sirve para usar el ng model , sirve para poder linkear el controlador con la vista
 import { HttpClient,HttpHeaders,HttpClientModule } from '@angular/common/http';// consumir servicio rest
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { UsuarioComponent } from '../usuario/usuario.component';
 
-import { PrimeNG } from 'primeng/config';
+
 import { MenuModule } from 'primeng/menu';
 
 
 @Component({
   selector: 'app-bienvenida',
-  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,MenuModule],
+  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,NavbarComponent,MenuModule],
   templateUrl: './bienvenida.component.html',
   styleUrl: './bienvenida.component.css'
 })
@@ -23,6 +25,8 @@ export class BienvenidaComponent {
     this.buscarUsuarios();
  
   }
+
+  
 
   buscarUsuarios(){
     this.servicioBuscarUsuarios().subscribe(

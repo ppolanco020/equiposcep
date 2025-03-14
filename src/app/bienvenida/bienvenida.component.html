@@ -1,54 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+<button type="button" class="btn btn-primary" id="btnAbrirModal" >
+    Abrir Modal
+  </button>
+  
+  <div id="contenedorModal"></div>
+  
+  <script>
+    document.getElementById('btnAbrirModal').addEventListener('click', function () {
+      fetch('usuario.component.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('contenedorModal').innerHTML = data;
+          console.log(data);
+  
+          // Inicializar el modal de Bootstrap
+          let modal = new bootstrap.Modal(document.getElementById('myModal'));
+          modal.show();
+        })
+        .catch(error => console.error('Error al cargar el modal:', error));
+    });
+  </script>
+  
 
-
-    <div class="row">
-        <div class="col-3">
-          <app-logout></app-logout>             
-        </div>
-<div class="col-7">
- 
-<div class="container-fluid border mt-3 border-0">
-    <p>Lista de usuarios:</p>
-    <div *ngFor="let usuario of usuarios">
-        <p>{{usuario.email}}</p>
-        <p>{{usuario.nombre}}</p>
-        <p>{{usuario.password}}</p>
-        <p>{{usuario.email}}</p> 
-        <hr>
-    </div>
-</div>
-    <div class="d-flex justify-content-start">
-        <div class="p-2">Flex item 1</div>
-        <div class="p-2">Flex item 2</div>
-        <div class="p-2">Flex item 3</div>
-      </div>
-    
-
-      <div class="col">
-    
-      </div>
-    </div>
-   
-
-</div>
-   
-    </body>
-    </html>
-    
-    
-
-
-
-
-
-
-
-
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS (Popper incluido) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

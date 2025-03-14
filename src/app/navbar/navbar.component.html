@@ -13,8 +13,10 @@
               Administrar
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" href="equipo">Equipo</a></li>
-              <li><a class="dropdown-item" href="usuario"></a></li>
+              <li><a class="dropdown-item" href="equipo">Equipos</a></li>
+              <li><a class="dropdown-item" ><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+              Usuario
+              </button></a></li>
               <li><a class="dropdown-item" href="#">Ubicaciones</a></li>
             </ul>
           </li>
@@ -50,11 +52,7 @@
 </head>
 <body>
 
-  <!-- Formulario que invoca el modal -->
-  <form id="myForm">
-    <div class="mb-3">
-      <label for="exampleInput" class="form-label">Ejemplo de Input</label>
-      <input type="text" class="form-control" id="exampleInput" placeholder="Ingresa algo...">
-    </div>
-    <button type="button" class="btn btn-primary" id="submitButton">Abrir Modal</button>
-  </form>
+<!-- Botón para abrir el modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Abrir Formulario
+</button>

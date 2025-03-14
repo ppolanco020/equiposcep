@@ -20,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
      provideAnimationsAsync(),
      provideAnimationsAsync(),
+     provideHttpClient(withFetch()), // Habilita fetch API
      providePrimeNG({
          theme: {
              preset: Aura,

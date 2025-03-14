@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,AfterViewInit, ElementRef, ViewChild  } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClient,HttpHeaders,HttpClientModule } from '@angular/common/http';// consumir servicio rest
@@ -7,9 +7,9 @@ import { CommonModule } from '@angular/common';
 //import { TiposPipe } from '../tipos.pipe';
 import { LogoutComponent } from '../logout/logout.component';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { ModalService } from '../modal.service';
 
 
-import { provideHttpClient, withFetch } from '@angular/common/http';
 @Component({
   selector: 'app-usuario',
   imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,NavbarComponent],
@@ -18,6 +18,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 })
 export class UsuarioComponent {
 
+
+
+  private modal: any;
   usuarios:any=[];
   ubicaciones:any=[];
   usuario:any={};
@@ -26,7 +29,6 @@ export class UsuarioComponent {
     this.buscarUsuarios();
     
   }
-
 
 
   ingresar(){

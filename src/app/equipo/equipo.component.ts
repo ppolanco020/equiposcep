@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LogoutComponent } from '../logout/logout.component';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 import { FormsModule } from '@angular/forms'; // sirve para usar el ng model , sirve para poder linkear el controlador con la vista
 import { HttpClient,HttpHeaders,HttpClientModule } from '@angular/common/http';// consumir servicio rest
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { PrimeNG } from 'primeng/config';
 import { MenuModule } from 'primeng/menu';
 import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
-import { NavbarComponent } from "../navbar/navbar.component";
+
 
 @Component({
   selector: 'app-equipo',

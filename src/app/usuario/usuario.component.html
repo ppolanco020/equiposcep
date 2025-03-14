@@ -6,8 +6,6 @@
   <title>Modal con Formulario en Bootstrap 5</title>
   <!-- Enlace a Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
 
   <!-- Botón para abrir el modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -17,42 +15,69 @@
   <!-- Modal -->
 
 
-  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
 
 
-  <div class="modal fade" id="myModal"data-bs-backdrop="static" data-bs-keyboard="false"   tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="miModal"data-bs-backdrop="static" data-bs-keyboard="false"   tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Formulario de Contacto</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Ingreso de usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="name" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="name" placeholder="Tu nombre">
+          <form (ngSubmit)="ingresar()" id="equipoForm">
+        
+        
+
+            <div class="form-floating mb-3">
+
+              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+              [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.email" class="form-control" >
+              <label for="floatingInput">Correo electrónico</label>
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+    
+  
+            <div class="form-floating mb-3">
+
+              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+              [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.nombre" class="form-control" >
+              <label for="floatingInput">Nombre</label>
             </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Mensaje</label>
-              <textarea class="form-control" id="message" rows="3" placeholder="Tu mensaje"></textarea>
+  
+            <div class="form-floating mb-3">
+  
+              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+              [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.apellido" class="form-control" >
+              <label for="floatingInput">Apellido</label>
             </div>
+  
+            <div class="form-floating mb-3" >
+              <select class="form-select" id="inputGroupSelect03" aria-label="Floating label" placeholder="Modelo" 
+             [ngModelOptions]="{standalone:true}" [(ngModel)]="usuario.ubicacionidubicacion"   class="form-control" >
+                 <option  *ngFor="let ubicacion of ubicaciones"  value={{ubicacion.idubicacion}}>{{ubicacion.ubicacion}} </option>    
+             </select>
+             <label for="floatingSelect">Ubicación</label>
+          </div>
+  
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Enviar</button>
+          <div> <input class="btn btn-success" type="submit" value="Guardar"></div>
         </div>
       </div>
     </div>
   </div>
+  
 
   <!-- Scripts de Bootstrap 5 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Bootstrap JS (Popper incluido) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
