@@ -74,7 +74,7 @@ servicioBuscarUsuarios():Observable<any>{
 
 buscarUbicaciones(){
   this.servicioBuscarUbicaciones().subscribe(
-      (u:any)=> this.ubicacion=u
+      (u:any)=> this.ubicaciones=u
   )
 }
 
@@ -84,9 +84,5 @@ return this.http.get<any>("http://localhost:8080/ubicacion/buscar");
 }
 
 
-  
-agregarusuarioUbicacion(){
-  this.ubicacion.push({});
-}
 
 }

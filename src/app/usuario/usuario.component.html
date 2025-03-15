@@ -113,7 +113,6 @@
     +
   </button>
             </div>
-
             
 
 
@@ -122,127 +121,22 @@
               <table class="table table-striped table-sm">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
+                    <th scope="col">Correo electrónico</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Ubicacion</th>
+        
                   </tr>
                 </thead>
-                <tbody>
+                <tbody  *ngFor="let u of usuarios"> 
                   <tr>
-                    <td>1,001</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.nombre}}</td>
+                    <td>{{u.apellido}}</td>
+                    <td>{{u.ubicacionidubicacion}}</td>
+       
                   </tr>
-                  <tr>
-                    <td>1,002</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                  </tr>
-                  <tr>
-                    <td>1,003</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                  </tr>
-                  <tr>
-                    <td>1,003</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>1,004</td>
-                    <td>text</td>
-                    <td>random</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                  </tr>
-                  <tr>
-                    <td>1,005</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                  </tr>
-                  <tr>
-                    <td>1,006</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>1,007</td>
-                    <td>placeholder</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>irrelevant</td>
-                  </tr>
-                  <tr>
-                    <td>1,008</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                  </tr>
-                  <tr>
-                    <td>1,009</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                  </tr>
-                  <tr>
-                    <td>1,010</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                  </tr>
-                  <tr>
-                    <td>1,011</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>1,012</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                  </tr>
-                  <tr>
-                    <td>1,013</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>visual</td>
-                  </tr>
-                  <tr>
-                    <td>1,014</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                  </tr>
-                  <tr>
-                    <td>1,015</td>
-                    <td>random</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>text</td>
-                  </tr>
-                </tbody>
+                               </tbody>
               </table>
 
   <!-- Modal -->
@@ -257,45 +151,53 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form (ngSubmit)="ingresar()" id="usuarioForm">
-        
-        
 
-            <div class="form-floating mb-3">
 
-              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
-              [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.email" class="form-control" >
-              <label for="floatingInput">Correo electrónico</label>
-            </div>
-    
-  
-            <div class="form-floating mb-3">
 
-              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
-              [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.nombre" class="form-control" >
-              <label for="floatingInput">Nombre</label>
-            </div>
+                  <form (ngSubmit)="ingresar()" id="usuarioForm" >
+                            
+   
+              
+                    <div class="form-floating mb-3">
+
+                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+                      [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.email" class="form-control" >
+                      <label for="floatingInput">Correo electrónico</label>
+                    </div>
+            
+          
+                    <div class="form-floating mb-3">
+
+                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+                      [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.nombre" class="form-control" >
+                      <label for="floatingInput">Nombre</label>
+                    </div>
+          
+                    <div class="form-floating mb-3">
+          
+                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+                      [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.apellido" class="form-control" >
+                      <label for="floatingInput">Apellido</label>
+                    </div>
   
-            <div class="form-floating mb-3">
-  
-              <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
-              [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.apellido" class="form-control" >
-              <label for="floatingInput">Apellido</label>
-            </div>
-            <div *ngFor="let u of ubicaciones">
-            <div class="form-floating mb-3" >
-              <select class="form-select" id="inputGroupSelect03" aria-label="Floating label" placeholder="Modelo" 
-             [ngModelOptions]="{standalone:true}" [(ngModel)]="u.ubicacionidubicacion"   class="form-control" >
-                 <option  *ngFor="let ubicacion of ubicaciones"  value={{ubicacion.idubicacion}}>{{ubicacion.ubicacion}} </option>    
-             </select>
-             <label for="floatingSelect">Ubicación</label>
-          </div>
-         </div>
-          </form>
-        </div>
+
+                    <div class="form-floating mb-3" >
+                      <select class="form-select" id="inputGroupSelect03" aria-label="Floating label" placeholder="Modelo" 
+                    [ngModelOptions]="{standalone:true}" [(ngModel)]="usuario.ubicacionidubicacion"   class="form-control" >
+                        <option  *ngFor="let ubicacion of ubicaciones"  value={{ubicacion.idubicacion}}>{{ubicacion.ubicacion}} </option>    
+                    </select>
+                    <label for="floatingSelect">Ubicación</label>
+
+             
+                </div>
+
+                <div> <input class="btn btn-success" type="submit" value="Guardar"></div>
+                  </form>
+
+        </div> 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <div> <input class="btn btn-success" type="submit" value="Guardar"></div>
+
+ 
          
         </div>
       </div>
