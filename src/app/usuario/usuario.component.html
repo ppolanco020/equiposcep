@@ -106,18 +106,48 @@
     <app-navbar></app-navbar>
  
 <div class="content">
-
             <div class="container-responsive">
-  <!-- Botón para abrir el modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-    +
-  </button>
-            </div>
+              
+          
+ 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-3 border bg-light mb-3 mb-3">
+                          <h2><button type="button" 
+                            class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">+</button></h2> <!-- Botón para abrir el modal -->
+
+
+                        </div> <!-- mb-3 agrega margen hacia abajo -->
+                    </div>
+                    <div class="col-12">
+                        <div class="p-3 mb-0">
+                        
+                            <form  class="d-flex" role="search" id="buscarForm">
+                            <input class="form-control me-2" type="search" placeholder="Correo electrónico"[ngModelOptions]="{standalone:true}"
+                             [(ngModel)]="valorBuscado" aria-label="Search" id="searchInput" (input)="onInputChange()" >
             
+                              <button class="btn btn-outline-success"  id="searchButton"(click)="onSearch()">Buscar</button>
+                        
+                            </form>
+                           
+                      
 
 
-            <h2>Section title</h2>
-            <div class="table-responsive small">
+
+
+
+
+                        </div> <!-- mb-3 agrega margen hacia abajo -->
+                    </div>
+                  
+                </div>
+
+
+
+
+     
+      
+            <div class="table-responsive small" *ngIf="usuarios" >
               <table class="table table-striped table-sm">
                 <thead>
                   <tr>
@@ -128,16 +158,22 @@
         
                   </tr>
                 </thead>
-                <tbody  *ngFor="let u of usuarios"> 
+                
+                <tbody *ngFor="let u of usuarios" > 
                   <tr>
                     <td>{{u.email}}</td>
                     <td>{{u.nombre}}</td>
                     <td>{{u.apellido}}</td>
-                    <td>{{u.ubicacionidubicacion}}</td>
+                    <td>{{u.ubicacionidubicacion|ubicacion:ubicaciones}}</td>
        
                   </tr>
-                               </tbody>
+                </tbody>
               </table>
+    
+          
+
+
+
 
   <!-- Modal -->
 
@@ -147,20 +183,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ingreso de nuevo usuario</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel ">Ingreso de nuevo usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" click="limpiarFormulario()"></button>
         </div>
+
+        <form (ngSubmit)="ingresar()" id="usuarioForm">
         <div class="modal-body">
+      
+                    <div class="form-floating mb-3">    
 
-
-
-                  <form (ngSubmit)="ingresar()" id="usuarioForm" >
-                            
-   
-              
-                    <div class="form-floating mb-3">
-
-                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" 
                       [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.email" class="form-control" >
                       <label for="floatingInput">Correo electrónico</label>
                     </div>
@@ -168,18 +200,18 @@
           
                     <div class="form-floating mb-3">
 
-                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" 
                       [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.nombre" class="form-control" >
                       <label for="floatingInput">Nombre</label>
                     </div>
           
                     <div class="form-floating mb-3">
           
-                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="text-transform:uppercase" 
+                      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" 
                       [ngModelOptions]="{standalone:true}"[(ngModel)]="usuario.apellido" class="form-control" >
                       <label for="floatingInput">Apellido</label>
                     </div>
-  
+
 
                     <div class="form-floating mb-3" >
                       <select class="form-select" id="inputGroupSelect03" aria-label="Floating label" placeholder="Modelo" 
@@ -187,23 +219,34 @@
                         <option  *ngFor="let ubicacion of ubicaciones"  value={{ubicacion.idubicacion}}>{{ubicacion.ubicacion}} </option>    
                     </select>
                     <label for="floatingSelect">Ubicación</label>
-
-             
-                </div>
-
-                <div> <input class="btn btn-success" type="submit" value="Guardar"></div>
-                  </form>
-
-        </div> 
+                    </div>
+            
         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" >Guardar</button>
+          </div>
+        </div> 
+        </form>
+            
 
- 
+   </div> </div></div>   
+
+    
+
+
+  
          
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+                 
+
+
   <!--cierre modal-->
+
+
+
+
+
    
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
