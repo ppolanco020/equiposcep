@@ -44,7 +44,7 @@ export class UsuarioComponent {
   verificadorbusqueda:boolean=false
   verificadorbusqueda2:boolean=false
 
-  constructor(private http:HttpClient,private nodeService: NodeService){
+  constructor(private http:HttpClient){
     this.buscarUsuarios();
     this.buscarUbicaciones();
     this.buscarbyEmail();
