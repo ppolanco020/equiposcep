@@ -6,16 +6,33 @@ import { CommonModule } from '@angular/common';
 import { LogoutComponent } from '../logout/logout.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { UbicacionPipe } from '../ubicacion.pipe';
-import { ModalService } from '../modal.service';
+import { TreeNode } from 'primeng/api';
+import { NodeService } from '@/service/nodeservice';
+
+import { ButtonModule } from 'primeng/button';
+
+import { TreeTableModule } from 'primeng/treetable';
+interface Column {
+  field: string;
+  header: string;
+  
+}
 
 
 @Component({
   selector: 'app-usuario',
-  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,NavbarComponent,UbicacionPipe],
+  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,NavbarComponent,UbicacionPipe,ButtonModule,TreeTableModule],
   templateUrl: './usuario.component.html',
-  styleUrl: './usuario.component.css'
+  styleUrl: './usuario.component.css',
+  providers: [NodeService]
 })
 export class UsuarioComponent {
+
+
+
+  files!: TreeNode[];
+
+  cols!: Column[];
 
   usuarios:any=[];
   ubicaciones:any=[];
@@ -27,10 +44,21 @@ export class UsuarioComponent {
   verificadorbusqueda:boolean=false
   verificadorbusqueda2:boolean=false
 
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient,private nodeService: NodeService){
     this.buscarUsuarios();
     this.buscarUbicaciones();
     this.buscarbyEmail();
+
+
+
+
+    this.nodeService.getFilesystem().then((files) => (this.files = files));
+    this.cols = [
+        { field: 'name', header: 'Name' },
+        { field: 'size', header: 'Size' },
+        { field: 'type', header: 'Type' },
+        { field: '', header: '' }
+    ];
 
   }
 
