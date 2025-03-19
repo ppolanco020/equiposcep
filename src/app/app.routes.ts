@@ -6,6 +6,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { EquipoComponent } from './equipo/equipo.component';
 import { UsuarioCrearComponent } from './usuario.crear/usuario.crear.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PruebasComponent } from './components/pruebas/pruebas.component';
 
 export const routes: Routes = [
     {path:'',component:LoginComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path:'usuario',component:UsuarioComponent},
     {path:'equipo',component:EquipoComponent},
     {path:'crearUsuario',component:UsuarioCrearComponent},
-    {path:'dashboard',component:DashboardComponent}
+    {path:'dashboard',component:DashboardComponent},
+    {path:'pruebas', component:PruebasComponent}
 ];

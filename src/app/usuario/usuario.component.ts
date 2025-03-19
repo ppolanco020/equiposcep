@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient,HttpHeaders,HttpClientModule } from '@angular/common/http';// consumir servicio rest
 import { Observable } from 'rxjs';
@@ -6,8 +6,11 @@ import { CommonModule } from '@angular/common';
 import { LogoutComponent } from '../logout/logout.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { UbicacionPipe } from '../ubicacion.pipe';
+
+import { PrimeNG } from 'primeng/config';
 import { TreeNode } from 'primeng/api';
-import { NodeService } from '@/service/nodeservice';
+
+//import { NodeService } from '@/service/nodeservice';
 
 import { ButtonModule } from 'primeng/button';
 
@@ -21,12 +24,13 @@ interface Column {
 
 @Component({
   selector: 'app-usuario',
-  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,NavbarComponent,UbicacionPipe,ButtonModule,TreeTableModule],
+  imports: [FormsModule,HttpClientModule,CommonModule,LogoutComponent,NavbarComponent,
+    UbicacionPipe,ButtonModule,TreeTableModule],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css',
-  providers: [NodeService]
+
 })
-export class UsuarioComponent {
+export class UsuarioComponent  implements OnInit{
 
 
 
@@ -52,7 +56,7 @@ export class UsuarioComponent {
 
 
 
-    this.nodeService.getFilesystem().then((files) => (this.files = files));
+    //this.nodeService.getFilesystem().then((files) => (this.files = files));
     this.cols = [
         { field: 'name', header: 'Name' },
         { field: 'size', header: 'Size' },
@@ -62,6 +66,12 @@ export class UsuarioComponent {
 
   }
 
+
+
+  ngOnInit() {
+  
+  
+}
 
   ingresar(){
     let formularioValido:any=document.getElementById("usuarioForm");

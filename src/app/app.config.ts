@@ -8,22 +8,16 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
 
-
-
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes), 
-     provideAnimationsAsync(),
-     provideHttpClient(withFetch()), // Habilita fetch API
-     providePrimeNG({
-         theme: {
-             preset: Aura,
-             options: {
-                 prefix: 'p',
-                 darkModeSelector: 'system',
-                 cssLayer: false
-               }  }
-  }), 
-]
+    provideZoneChangeDetection({ eventCoalescing: true }),  provideRouter(routes),
+    provideAnimationsAsync(),
+    providePrimeNG({
+        theme: {
+            preset: Aura
+        }
+    })
+  
+  ]
+          
 };
